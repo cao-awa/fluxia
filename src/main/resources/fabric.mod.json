@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "language-translator",
+  "version": "${version}",
+  "name": "Language translator",
+  "description": "The language translator is a framework that lets content can be translated into other formats.",
+  "authors": [
+    "cao_awa"
+  ],
+  "contributors": [
+    "cao_awa"
+  ],
+  "contact": {
+    "homepage": "https://github.com/cao-awa/Conium",
+    "sources": "https://github.com/cao-awa/Conium",
+    "issues": "https://github.com/cao-awa/Conium/issues"
+  },
+  "license": "GPL-3.0",
+  "icon": "assets/language-translator/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+    ],
+    "main": [
+      "com.github.cao.awa.language.translator.mod.LanguageTranslatorMod"
+    ]
+  },
+  "mixins": [
+  ],
+  "depends": {
+  }
+}
