@@ -1,4 +1,4 @@
-package com.github.cao.awa.language.translator.mod;
+package com.github.cao.awa.fluxia;
 
 import com.github.cao.awa.language.translator.builtin.typescript.translate.kts.TypescriptKotlinScriptTranslator;
 import com.github.cao.awa.language.translator.translate.LanguageTranslator;
@@ -11,7 +11,7 @@ import org.apache.logging.log4j.Logger;
 
 import java.util.*;
 
-public class LanguageTranslatorMod implements ModInitializer {
+public class FluxiaMod implements ModInitializer {
     private final static Logger LOGGER = LogManager.getLogger("LanguageTranslator");
 
     @Override

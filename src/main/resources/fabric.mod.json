@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "id": "language-translator",
+  "id": "fluxia",
   "version": "${version}",
-  "name": "Language translator",
-  "description": "The language translator is a framework that lets content can be translated into other formats.",
+  "name": "Fluxia",
+  "description": "Fluxia packing the language translator, the language translator is a framework that lets content can be translated into other formats.",
   "authors": [
     "cao_awa"
   ],
@@ -16,13 +16,13 @@
     "issues": "https://github.com/cao-awa/language-translator/issues"
   },
   "license": "GPL-3.0",
-  "icon": "assets/language-translator/icon.png",
+  "icon": "assets/fluxia/icon.png",
   "environment": "*",
   "entrypoints": {
     "client": [
     ],
     "main": [
-      "com.github.cao.awa.language.translator.mod.LanguageTranslatorMod"
+      "com.github.cao.awa.fluxia.FluxiaMod"
     ]
   },
   "mixins": [
