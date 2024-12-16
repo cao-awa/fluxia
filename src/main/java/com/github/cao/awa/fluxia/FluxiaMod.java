@@ -1,35 +1,46 @@
 package com.github.cao.awa.fluxia;
 
-import com.github.cao.awa.language.translator.builtin.typescript.translate.kts.TypescriptKotlinScriptTranslator;
-import com.github.cao.awa.language.translator.translate.LanguageTranslator;
-import com.github.cao.awa.language.translator.translate.lang.TranslateTarget;
-import com.github.cao.awa.language.translator.translate.lang.element.TranslateElementData;
+import com.github.cao.awa.translator.structuring.builtin.typescript.translate.kts.TypescriptKotlinScriptTranslator;
+import com.github.cao.awa.translator.structuring.translate.StructuringTranslator;
+import com.github.cao.awa.translator.structuring.translate.language.LanguageTranslateTarget;
+import com.github.cao.awa.translator.structuring.translate.element.TranslateElementData;
 import com.github.cao.awa.sinuatum.util.collection.CollectionFactor;
+import com.github.cao.awa.translator.structuring.builtin.typescript.translate.kts.TypescriptKotlinScriptTranslator;
 import net.fabricmc.api.ModInitializer;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.*;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
 
 public class FluxiaMod implements ModInitializer {
-    private final static Logger LOGGER = LogManager.getLogger("LanguageTranslator");
+    private final static Logger LOGGER = LogManager.getLogger("Fluxia");
+    public static boolean enableDebug = false;
 
     @Override
     public void onInitialize() {
-        LOGGER.info("Loading language translator {} provider '{}' for [typescript]", LanguageTranslator.getVersion(), LanguageTranslator.DEFAULT_PROVIDER);
+        LOGGER.info("Loading structuring translator {} provider '{}' for [typescript]", StructuringTranslator.getVersion(), StructuringTranslator.DEFAULT_PROVIDER);
         TypescriptKotlinScriptTranslator.postRegister();
 
-        Map<TranslateTarget, Map<TranslateElementData<?>, LanguageTranslator<?>>> typescriptTranslators = LanguageTranslator.getTranslators(LanguageTranslator.DEFAULT_PROVIDER);
+        Map<LanguageTranslateTarget, Map<TranslateElementData<?>, StructuringTranslator<?>>> typescriptTranslators = StructuringTranslator.getTranslators(StructuringTranslator.DEFAULT_PROVIDER);
         LOGGER.info(
-                "The language translator provider '{}' has loaded {} translators: {}",
-                LanguageTranslator.DEFAULT_PROVIDER,
-                typescriptTranslators.size(),
-                collectTranslators(typescriptTranslators)
+                "The structuring translator provider '{}' has loaded {} translators",
+                StructuringTranslator.DEFAULT_PROVIDER,
+                typescriptTranslators.size()
         );
+        if (enableDebug) {
+            LOGGER.info(
+                    "The structuring translator provider '{}' has loaded {} translators: {}",
+                    StructuringTranslator.DEFAULT_PROVIDER,
+                    typescriptTranslators.size(),
+                    collectTranslators(typescriptTranslators)
+            );
+        }
     }
 
-    private static Map<TranslateTarget, List<Object>> collectTranslators(Map<TranslateTarget, Map<TranslateElementData<?>, LanguageTranslator<?>>> translators) {
-        Map<TranslateTarget, List<Object>> result = CollectionFactor.hashMap();
+    private static Map<LanguageTranslateTarget, List<Object>> collectTranslators(Map<LanguageTranslateTarget, Map<TranslateElementData<?>, StructuringTranslator<?>>> translators) {
+        Map<LanguageTranslateTarget, List<Object>> result = CollectionFactor.hashMap();
         translators.forEach((target, targetTranslators) -> result.put(target, Collections.singletonList(targetTranslators.keySet().stream().map(TranslateElementData::clazz).toList())));
         return result;
     }

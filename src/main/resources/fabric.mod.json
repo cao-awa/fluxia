@@ -3,7 +3,7 @@
   "id": "fluxia",
   "version": "${version}",
   "name": "Fluxia",
-  "description": "Fluxia packing the language translator, the language translator is a framework that lets content can be translated into other formats.",
+  "description": "Fluxia packing the structuring translator, the structuring translator is a framework that lets content can be translated into other formats.",
   "authors": [
     "cao_awa"
   ],
@@ -11,16 +11,14 @@
     "cao_awa"
   ],
   "contact": {
-    "homepage": "https://github.com/cao-awa/language-translator",
-    "sources": "https://github.com/cao-awa/language-translator",
-    "issues": "https://github.com/cao-awa/language-translator/issues"
+    "homepage": "https://github.com/cao-awa/structuring-translator",
+    "sources": "https://github.com/cao-awa/structuring-translator",
+    "issues": "https://github.com/cao-awa/structuring-translator/issues"
   },
   "license": "GPL-3.0",
   "icon": "assets/fluxia/icon.png",
   "environment": "*",
   "entrypoints": {
-    "client": [
-    ],
     "main": [
       "com.github.cao.awa.fluxia.FluxiaMod"
     ]

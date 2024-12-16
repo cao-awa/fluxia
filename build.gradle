@@ -36,7 +36,7 @@ repositories {
     }
     maven {
         name = "GitHubPackages"
-        url = "https://github.com/cao-awa/language-translator"
+        url = "https://github.com/cao-awa/structuring-translator"
         credentials {
             username = "cao-awa"
             password = "ghp_UgALm1Ta2ONYeNh" + "S2m0XoWSc27BcE22v4Umn"
@@ -50,17 +50,14 @@ configurations {
 }
 
 dependencies {
-    implementation 'org.jetbrains:annotations:23.0.0'
+    implementation 'org.jetbrains:annotations:26.0.1'
 
     // To change the versions see the gradle.properties file
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
     mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
-    // Fabric API. This is technically optional, but you probably want it anyway.
-    modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
-
-    shadow "com.github.cao.awa:language-translator:${project.language_translator_version}"
+    shadow "com.github.cao.awa:structuring-translator:${project.structuring_translator_version}"
 }
 
 processResources {
@@ -113,31 +110,5 @@ publishing {
         // Notice: This block does NOT have the same function as the block in the top level.
         // The repositories here will be used for publishing your artifact, not for
         // retrieving dependencies.
-    }
-}
-
-loom {
-    runs {
-        // This adds a new gradle task that runs the datagen API: "gradlew runDatagenClient"
-        datagenClient {
-            inherit client
-            name "Data Generation"
-            vmArg "-Dfabric-api.datagen"
-            vmArg "-Dfabric-api.datagen.output-dir=${file("src/main/generated")}"
-            vmArg "-Dfabric-api.datagen.strict-validation"
-
-            runDir "build/datagen"
-        }
-    }
-}
-
-// Add the datagenned files into the jar.
-sourceSets {
-    main {
-        resources {
-            srcDirs += [
-                    'src/main/generated'
-            ]
-        }
     }
 }
