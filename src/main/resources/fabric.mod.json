@@ -26,5 +26,13 @@
   "mixins": [
   ],
   "depends": {
+  },
+  "custom": {
+    "modmenu": {
+      "parent": {
+        "id": "conium",
+        "badges": [ "library" ]
+      }
+    }
   }
 }
