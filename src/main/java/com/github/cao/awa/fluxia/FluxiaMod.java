@@ -19,7 +19,7 @@ public class FluxiaMod implements ModInitializer {
 
     @Override
     public void onInitialize() {
-        LOGGER.info("Loading structuring translator {} provider '{}' for [typescript]", StructuringTranslator.getVersion(), StructuringTranslator.DEFAULT_PROVIDER);
+        LOGGER.info("Loading fluxia structuring translator {} provider '{}' for [typescript]", StructuringTranslator.getVersion(), StructuringTranslator.DEFAULT_PROVIDER);
         TypescriptKotlinScriptTranslator.postRegister();
 
         Map<LanguageTranslateTarget, Map<TranslateElementData<?>, StructuringTranslator<?>>> typescriptTranslators = StructuringTranslator.getTranslators(StructuringTranslator.DEFAULT_PROVIDER);
